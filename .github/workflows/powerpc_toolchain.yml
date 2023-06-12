@@ -1,0 +1,28 @@
+name: powerpc Toolchain
+
+on: [push, pull_request]
+
+jobs:
+  # Building using the github runner environement directly.
+  powerpc:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        targets: [
+          [ppc], # alias
+          [ppc-440fp],
+          # [ppc-e500mc], # TODO(mizux) To fix
+          [ppc64], # OCI alias
+          [ppc64le], # OCI alias
+          [ppc64-power8],
+          [ppc64le-power8],
+        ]
+      fail-fast: false
+    env:
+      TARGET: ${{ matrix.targets[0] }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: make --directory=ci ${TARGET}_build
+    - name: Test
+      run: make --directory=ci ${TARGET}_test
