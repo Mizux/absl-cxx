@@ -1,5 +1,5 @@
 enable_language(CXX)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -76,12 +76,10 @@ function(add_cpp_test FILE_NAME)
 
   add_executable(${TEST_NAME} ${FILE_NAME})
   target_include_directories(${TEST_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-  target_compile_features(${TEST_NAME} PRIVATE cxx_std_17)
+  target_compile_features(${TEST_NAME} PRIVATE cxx_std_20)
   target_link_libraries(${TEST_NAME} PRIVATE
     Catch2 Catch2WithMain
-    ${PROJECT_NAMESPACE}::Foo
-    ${PROJECT_NAMESPACE}::Bar
-    ${PROJECT_NAMESPACE}::FooBar)
+    ${PROJECT_NAMESPACE}::Foo)
 
   if(BUILD_TESTING)
     add_test(NAME cpp_${COMPONENT_NAME}_${TEST_NAME} COMMAND ${TEST_NAME})
@@ -90,9 +88,6 @@ function(add_cpp_test FILE_NAME)
 endfunction()
 
 add_subdirectory(Foo)
-add_subdirectory(Bar)
-add_subdirectory(FooBar)
-add_subdirectory(FooBarApp)
 
 # Install
 install(EXPORT ${PROJECT_NAME}Targets

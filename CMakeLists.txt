@@ -4,8 +4,8 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 option(CMAKE_EXPORT_COMPILE_COMMANDS "Export compile command" TRUE)
 
-project(CMakeCpp VERSION 1.0 LANGUAGES CXX)
-set(PROJECT_NAMESPACE CMakeCpp)
+project(AbslCxx VERSION 1.0 LANGUAGES CXX)
+set(PROJECT_NAMESPACE AbslCxx)
 message(STATUS "${PROJECT_NAME} version: ${PROJECT_VERSION}")
 #message(STATUS "major: ${PROJECT_VERSION_MAJOR}")
 #message(STATUS "minor: ${PROJECT_VERSION_MINOR}")
@@ -63,7 +63,3 @@ set_property(GLOBAL PROPERTY CTEST_TARGETS_ADDED 1)
 include(CTest)
 
 include(cpp)
-
-option(BUILD_EXAMPLES "Build examples" ON)
-message(STATUS "Build examples: ${BUILD_EXAMPLES}")
-add_subdirectory(examples)
