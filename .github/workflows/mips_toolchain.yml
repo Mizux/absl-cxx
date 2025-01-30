@@ -10,7 +10,7 @@ jobs:
       matrix:
         targets: [
           [mips], # OCI alias
-          [mipsle], # OCI alias
+          [mipsel], # OCI alias
           [mips32-r6],
           [mips32el-r6],
           [mips32-r2],

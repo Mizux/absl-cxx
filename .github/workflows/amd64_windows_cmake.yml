@@ -8,27 +8,14 @@ jobs:
   native:
     strategy:
       matrix:
-        python: [
-          {version: '3.11'},
-          {version: '3.12'},
-          #{version: '3.13'},
-        ]
         cmake: [
           {name: "VS22", generator: "Visual Studio 17 2022", config: Release, build_target: ALL_BUILD, test_target: RUN_TESTS, install_target: INSTALL},
         ]
       fail-fast: false
-    name: Windows•CMake(${{ matrix.cmake.name }})•Py${{ matrix.python.version }}
+    name: Windows•CMake(${{ matrix.cmake.name }})
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python.version }}
-      - name: Check Python
-        run: |
-          python --version
-          python -m platform
       - name: Check CMake
         run: |
           cmake --version
