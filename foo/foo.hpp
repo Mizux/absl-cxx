@@ -8,11 +8,31 @@
 #include "absl/status/status.h"
 #include "absl/time/time.h"
 
+
+#if defined(_MSC_VER) && defined(FOO_BUILD_DLL)
+// Annoying stuff for windows -- makes sure clients can import these functions
+#if defined(FOO_EXPORT)
+#define FOO_DLL __declspec(dllexport)
+#else
+#define FOO_DLL __declspec(dllimport)
+#endif  // defined(FOO_EXPORT)
+#endif  // _MSC_VER && FOO_BUILD_DLL
+
+#ifndef FOO_DLL
+#define FOO_DLL
+#endif
+
+#if 1
+FOO_DLL extern absl::Flag<bool> FLAGS_foo_bool;
+FOO_DLL extern absl::Flag<int> FLAGS_foo_int;
+FOO_DLL extern absl::Flag<int64_t> FLAGS_foo_long_int;
+FOO_DLL extern absl::Flag<std::string> FLAGS_foo_string;
+#else
 ABSL_DECLARE_FLAG(bool, foo_bool);
 ABSL_DECLARE_FLAG(int, foo_int);
 ABSL_DECLARE_FLAG(int64_t, foo_long_int);
 ABSL_DECLARE_FLAG(std::string, foo_string);
-
+#endif
 //! @namespace foo The `foo` namespace
 namespace foo {
 

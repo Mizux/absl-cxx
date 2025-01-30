@@ -5,6 +5,10 @@ target_include_directories(foo
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>
     $<INSTALL_INTERFACE:include>)
 target_compile_features(foo PUBLIC cxx_std_17)
+if(MSVC AND BUILD_SHARED_LIBS)
+  target_compile_definitions(foo PUBLIC "FOO_BUILD_DLL")
+  target_compile_definitions(foo PRIVATE "FOO_EXPORT")
+endif()
 set_target_properties(foo PROPERTIES
   VERSION ${PROJECT_VERSION}
   PUBLIC_HEADER foo.hpp)
