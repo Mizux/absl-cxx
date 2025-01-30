@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "absl/base/log_severity.h"
+#include "absl/flags/flag.h"
 #include "absl/flags/parse.h"
 #include "absl/flags/usage.h"
 #include "absl/log/globals.h"
@@ -49,5 +50,10 @@ int main(int argc, char* argv[]) {
   LOG(INFO) << std::to_string(f.getInt64()) << std::endl;
 
   LOG(INFO) << f() << std::endl;
+
+  LOG(INFO) << absl::GetFlag(FLAGS_foo_bool) << std::endl;
+  LOG(INFO) << absl::GetFlag(FLAGS_foo_int) << std::endl;
+  LOG(INFO) << absl::GetFlag(FLAGS_foo_long_int) << std::endl;
+  LOG(INFO) << absl::GetFlag(FLAGS_foo_string) << std::endl;
   return 0;
 }

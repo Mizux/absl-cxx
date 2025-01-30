@@ -4,6 +4,13 @@
 #include <string>
 #include <utility>
 
+#include "absl/flags/flag.h"
+
+ABSL_FLAG(bool, foo_bool, true, "testing bool");
+ABSL_FLAG(int, foo_int, 42, "testing int");
+ABSL_FLAG(int64_t, foo_long_int, 97, "testing int64");
+ABSL_FLAG(std::string, foo_string, "foo testing", "testing string");
+
 namespace foo {
 absl::Status abslFunction(absl::string_view string) {
   std::cout << "Enter " << __func__ << "()" << std::endl;

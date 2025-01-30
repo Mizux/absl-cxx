@@ -3,9 +3,15 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+#include "absl/flags/declare.h"
 #include "absl/strings/string_view.h"
 #include "absl/status/status.h"
 #include "absl/time/time.h"
+
+ABSL_DECLARE_FLAG(bool, foo_bool);
+ABSL_DECLARE_FLAG(int, foo_int);
+ABSL_DECLARE_FLAG(int64_t, foo_long_int);
+ABSL_DECLARE_FLAG(std::string, foo_string);
 
 //! @namespace foo The `foo` namespace
 namespace foo {
