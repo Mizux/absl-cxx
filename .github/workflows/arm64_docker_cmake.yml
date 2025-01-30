@@ -8,7 +8,14 @@ jobs:
     strategy:
       matrix:
         platform: [arm64]
-        distro: [almalinux, alpine, debian, fedora, opensuse, rockylinux, ubuntu]
+        distro: [
+          almalinux,
+          alpine,
+          #debian, # compiler segfault
+          #fedora, # compiler segfault
+          #opensuse, # compiler segfault
+          rockylinux,
+          ubuntu]
       fail-fast: false
     name: ${{ matrix.platform }}•${{ matrix.distro }}•CMake
     runs-on: ubuntu-latest
