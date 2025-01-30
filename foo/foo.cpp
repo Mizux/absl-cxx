@@ -1,10 +1,56 @@
-#include "foo/Foo.hpp"
+#include "foo/foo.hpp"
 
 #include <iostream>
 #include <string>
 #include <utility>
 
 namespace foo {
+absl::Status abslFunction(absl::string_view string) {
+  std::cout << "Enter " << __func__ << "()" << std::endl;
+  // encounter error
+  if (string == "error") {
+    std::cout << "Exit(error) " << __func__ << "()" << std::endl;
+    return absl::InternalError(string);
+  }
+  std::cout << "Exit(ok) " << __func__ << "()" << std::endl;
+  return absl::OkStatus();
+}
+
+absl::Duration MakeDuration(double secs) { return absl::Seconds(secs); }
+
+absl::Duration MakeInfiniteDuration() { return absl::InfiniteDuration(); }
+
+bool IsInfiniteDuration(const absl::Duration& duration) {
+  return duration == absl::InfiniteDuration();
+}
+
+bool CheckDuration(const absl::Duration& duration, double secs) {
+  return duration == MakeDuration(secs);
+}
+
+absl::Time MakeTime(double secs) {
+  int64_t microsecs = static_cast<int64_t>(secs * 1e6);
+  return absl::FromUnixMicros(microsecs);
+}
+
+bool CheckDatetime(const absl::Time& datetime, double secs) {
+  return datetime == MakeTime(secs);
+}
+
+absl::Status ReturnStatus(absl::StatusCode code, absl::string_view text) {
+  return absl::Status(code, text);
+}
+
+void freeFunction(int level) {
+  std::cout << "[" << level << "] Enter " << __func__ << "(int)" << std::endl;
+  std::cout << "[" << level << "] Exit " << __func__ << "(int)" << std::endl;
+}
+
+void freeFunction(int64_t level) {
+  std::cout << "[" << level << "] Enter " << __func__ << "(int64_t)" << std::endl;
+  std::cout << "[" << level << "] Exit " << __func__ << "(int64_t)" << std::endl;
+}
+
 std::vector<std::string> stringVectorOutput(int level) {
   std::cout << "[" << level << "] Enter " << __func__ << "()" << std::endl;
   std::vector<std::string> result(level, std::to_string(level));
@@ -143,16 +189,6 @@ int pairJaggedArrayRefInput(const std::vector<std::vector<std::pair<int, int>>>&
   std::cout << "}" << std::endl;
   std::cout << "Exit " << __func__ << "()" << std::endl;
   return data.size();
-}
-
-void freeFunction(int level) {
-  std::cout << "[" << level << "] Enter " << __func__ << "(int)" << std::endl;
-  std::cout << "[" << level << "] Exit " << __func__ << "(int)" << std::endl;
-}
-
-void freeFunction(int64_t level) {
-  std::cout << "[" << level << "] Enter " << __func__ << "(int64_t)" << std::endl;
-  std::cout << "[" << level << "] Exit " << __func__ << "(int64_t)" << std::endl;
 }
 
 void Foo::staticFunction(int level) {

@@ -1,0 +1,28 @@
+# Enable logging rc options.
+common --announce_rc
+
+# Enable verbose failures for testing only.
+build --verbose_failures
+
+# Set the default Apple platform to macOS.
+build --apple_platform_type=macos
+
+# By default, build in C++ 17 mode.
+build --enable_platform_specific_config
+build:linux --cxxopt="-std=c++17" --cxxopt=-Wno-sign-compare
+build:linux --host_cxxopt="-std=c++17" --host_cxxopt=-Wno-sign-compare
+build:macos --cxxopt="-std=c++17" --cxxopt=-Wno-sign-compare --cxxopt=-mmacos-version-min=10.15 --cxxopt=-Wno-dangling-field --features=-supports_dynamic_linker
+build:macos --host_cxxopt="-std=c++17" --host_cxxopt=-Wno-sign-compare --host_cxxopt=-mmacos-version-min=10.15 --host_cxxopt=-Wno-dangling-field
+build:windows --cxxopt="/std:c++17"
+build:windows --host_cxxopt="/std:c++17"
+
+# Print command lines for build commands.
+# build --subcommands=pretty_print
+
+# Enable logging error output.
+test --test_output=errors
+test --test_summary=detailed
+test --test_timeout_filters=-eternal
+
+# https://bazel.build/configure/best-practices#bazelrc-file
+try-import %workspace%/user.bazelrc

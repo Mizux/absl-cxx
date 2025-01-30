@@ -1,0 +1,15 @@
+module(
+    name = "mizux_absl_cxx",
+    version = "head",
+)
+
+# Only direct dependencies need to be listed below.
+# Please keep the versions in sync with the versions in the WORKSPACE file.
+# see https://registry.bazel.build/
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "platforms", version = "0.0.10")
+bazel_dep(name = "rules_cc", version = "0.0.16")
+bazel_dep(name = "abseil-cpp", version = "20240722.0.bcr.2", repo_name = "com_google_absl")
+
+#### DEV ONLY DEPENDENCIES BELOW HERE ####
+bazel_dep(name = "googletest", version = "1.15.2")

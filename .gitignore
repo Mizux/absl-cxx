@@ -1,3 +1,4 @@
+bazel-*
 build/
 build*/
 export/
@@ -7,6 +8,7 @@ cache/
 
 # IDE
 .vs/
+.vscode/
 .cache/
 # Kdevelop
 .kdev4/

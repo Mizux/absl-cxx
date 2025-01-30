@@ -1,0 +1,23 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "foo",
+    srcs = ["foo.cpp"],
+    hdrs = ["foo.hpp"],
+    #strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+    deps = [
+      "@com_google_absl//absl/status",
+      "@com_google_absl//absl/strings:string_view",
+    ],
+)
+
+cc_test(
+    name = "foo_test",
+    srcs = ["foo_test.cpp"],
+    #copts = ["-Iexternal/gtest/include"],
+    deps = [
+        ":foo",
+        "@googletest//:gtest_main",
+    ],
+)

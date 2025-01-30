@@ -1,52 +1,69 @@
-Github-CI:<br>
-[![Build Status][github_linux_status]][github_linux_link]
-[![Build Status][github_macos_status]][github_macos_link]
-[![Build Status][github_windows_status]][github_windows_link]<br>
+Github-CI:
+| OS      | Bazel | CMake |
+|:------- | :---: | :---: |
+| Linux   | [![Build Status][amd64_linux_bazel_status]][amd64_linux_bazel_link] | [![Build Status][amd64_linux_cmake_status]][amd64_linux_cmake_link] |
+| MacOS   | [![Build Status][amd64_macos_bazel_status]][amd64_macos_bazel_link] | [![Build Status][amd64_macos_cmake_status]][amd64_macos_cmake_link] |
+| Windows | [![Build Status][amd64_windows_bazel_status]][amd64_windows_bazel_link] | [![Build Status][amd64_windows_cmake_status]][amd64_windows_cmake_link] |
+| Docker  | [![Build Status][amd64_docker_bazel_status]][amd64_docker_bazel_link] | [![Build Status][amd64_docker_cmake_status]][amd64_docker_cmake_link] |
 
-[![Build Status][github_amd64_docker_status]][github_amd64_docker_link]
-[![Build Status][github_arm64_docker_status]][github_arm64_docker_link]
-[![Build Status][github_riscv64_docker_status]][github_riscv64_docker_link]<br>
+[amd64_linux_bazel_status]: ./../../actions/workflows/amd64_linux_bazel.yml/badge.svg
+[amd64_linux_bazel_link]: ./../../actions/workflows/amd64_linux_bazel.yml
+[amd64_macos_bazel_status]: ./../../actions/workflows/amd64_macos_bazel.yml/badge.svg
+[amd64_macos_bazel_link]: ./../../actions/workflows/amd64_macos_bazel.yml
+[amd64_windows_bazel_status]: ./../../actions/workflows/amd64_windows_bazel.yml/badge.svg
+[amd64_windows_bazel_link]: ./../../actions/workflows/amd64_windows_bazel.yml
+[amd64_docker_bazel_status]: ./../../actions/workflows/amd64_docker_bazel.yml/badge.svg
+[amd64_docker_bazel_link]: ./../../actions/workflows/amd64_docker_bazel.yml
 
-[![Build Status][github_arm_toolchain_status]][github_arm_toolchain_link]
-[![Build Status][github_aarch64_toolchain_status]][github_aarch64_toolchain_link]
-[![Build Status][github_mips_toolchain_status]][github_mips_toolchain_link]
-[![Build Status][github_mips64_toolchain_status]][github_mips64_toolchain_link]
-[![Build Status][github_powerpc_toolchain_status]][github_powerpc_toolchain_link]
-[![Build Status][github_riscv64_toolchain_status]][github_riscv64_toolchain_link]<br>
+[amd64_linux_cmake_status]: ./../../actions/workflows/amd64_linux_cmake.yml/badge.svg
+[amd64_linux_cmake_link]: ./../../actions/workflows/amd64_linux_cmake.yml
+[amd64_macos_cmake_status]: ./../../actions/workflows/amd64_macos_cmake.yml/badge.svg
+[amd64_macos_cmake_link]: ./../../actions/workflows/amd64_macos_cmake.yml
+[amd64_windows_cmake_status]: ./../../actions/workflows/amd64_windows_cmake.yml/badge.svg
+[amd64_windows_cmake_link]: ./../../actions/workflows/amd64_windows_cmake.yml
+[amd64_docker_cmake_status]: ./../../actions/workflows/amd64_docker_cmake.yml/badge.svg
+[amd64_docker_cmake_link]: ./../../actions/workflows/amd64_docker_cmake.yml
 
-[github_linux_status]: https://github.com/Mizux/absl-cxx/actions/workflows/amd64_linux.yml/badge.svg
-[github_linux_link]: https://github.com/Mizux/absl-cxx/actions/workflows/amd64_linux.yml
-[github_macos_status]: https://github.com/Mizux/absl-cxx/actions/workflows/amd64_macos.yml/badge.svg
-[github_macos_link]: https://github.com/Mizux/absl-cxx/actions/workflows/amd64_macos.yml
-[github_windows_status]: https://github.com/Mizux/absl-cxx/actions/workflows/amd64_windows.yml/badge.svg
-[github_windows_link]: https://github.com/Mizux/absl-cxx/actions/workflows/amd64_windows.yml
+[![Build Status][amd64_docker_status]][amd64_docker_link]
+[![Build Status][arm64_docker_status]][arm64_docker_link]
+[![Build Status][riscv64_docker_status]][riscv64_docker_link]<br>
 
-[github_amd64_docker_status]: https://github.com/Mizux/absl-cxx/actions/workflows/amd64_docker.yml/badge.svg
-[github_amd64_docker_link]: https://github.com/Mizux/absl-cxx/actions/workflows/amd64_docker.yml
-[github_arm64_docker_status]: https://github.com/Mizux/absl-cxx/actions/workflows/arm64_docker.yml/badge.svg
-[github_arm64_docker_link]: https://github.com/Mizux/absl-cxx/actions/workflows/arm64_docker.yml
-[github_riscv64_docker_status]: https://github.com/Mizux/absl-cxx/actions/workflows/riscv64_docker.yml/badge.svg
-[github_riscv64_docker_link]: https://github.com/Mizux/absl-cxx/actions/workflows/riscv64_docker.yml
+[amd64_docker_status]: ./../../actions/workflows/amd64_docker.yml/badge.svg
+[amd64_docker_link]: ./../../actions/workflows/amd64_docker.yml
+[arm64_docker_status]: ./../../actions/workflows/arm64_docker.yml/badge.svg
+[arm64_docker_link]: ./../../actions/workflows/arm64_docker.yml
+[riscv64_docker_status]: ./../../actions/workflows/riscv64_docker.yml/badge.svg
+[riscv64_docker_link]: ./../../actions/workflows/riscv64_docker.yml
 
-[github_arm_toolchain_status]: https://github.com/Mizux/absl-cxx/actions/workflows/arm_toolchain.yml/badge.svg
-[github_arm_toolchain_link]: https://github.com/Mizux/absl-cxx/actions/workflows/arm_toolchain.yml
-[github_aarch64_toolchain_status]: https://github.com/Mizux/absl-cxx/actions/workflows/aarch64_toolchain.yml/badge.svg
-[github_aarch64_toolchain_link]: https://github.com/Mizux/absl-cxx/actions/workflows/aarch64_toolchain.yml
-[github_mips_toolchain_status]: https://github.com/Mizux/absl-cxx/actions/workflows/mips_toolchain.yml/badge.svg
-[github_mips_toolchain_link]: https://github.com/Mizux/absl-cxx/actions/workflows/mips_toolchain.yml
-[github_mips64_toolchain_status]: https://github.com/Mizux/absl-cxx/actions/workflows/mips64_toolchain.yml/badge.svg
-[github_mips64_toolchain_link]: https://github.com/Mizux/absl-cxx/actions/workflows/mips64_toolchain.yml
-[github_powerpc_toolchain_status]: https://github.com/Mizux/absl-cxx/actions/workflows/powerpc_toolchain.yml/badge.svg
-[github_powerpc_toolchain_link]: https://github.com/Mizux/absl-cxx/actions/workflows/powerpc_toolchain.yml
-[github_riscv64_toolchain_status]: https://github.com/Mizux/absl-cxx/actions/workflows/riscv64_toolchain.yml/badge.svg
-[github_riscv64_toolchain_link]: https://github.com/Mizux/absl-cxx/actions/workflows/riscv64_toolchain.yml
+[![Build Status][arm_toolchain_status]][arm_toolchain_link]
+[![Build Status][aarch64_toolchain_status]][aarch64_toolchain_link]
+[![Build Status][mips_toolchain_status]][mips_toolchain_link]
+[![Build Status][mips64_toolchain_status]][mips64_toolchain_link]
+[![Build Status][powerpc_toolchain_status]][powerpc_toolchain_link]
+[![Build Status][riscv64_toolchain_status]][riscv64_toolchain_link]<br>
+
+[arm_toolchain_status]: ./../../actions/workflows/arm_toolchain.yml/badge.svg
+[arm_toolchain_link]: ./../../actions/workflows/arm_toolchain.yml
+[aarch64_toolchain_status]: ./../../actions/workflows/aarch64_toolchain.yml/badge.svg
+[aarch64_toolchain_link]: ./../../actions/workflows/aarch64_toolchain.yml
+[mips_toolchain_status]: ./../../actions/workflows/mips_toolchain.yml/badge.svg
+[mips_toolchain_link]: ./../../actions/workflows/mips_toolchain.yml
+[mips64_toolchain_status]: ./../../actions/workflows/mips64_toolchain.yml/badge.svg
+[mips64_toolchain_link]: ./../../actions/workflows/mips64_toolchain.yml
+[powerpc_toolchain_status]: ./../../actions/workflows/powerpc_toolchain.yml/badge.svg
+[powerpc_toolchain_link]: ./../../actions/workflows/powerpc_toolchain.yml
+[riscv64_toolchain_status]: ./../../actions/workflows/riscv64_toolchain.yml/badge.svg
+[riscv64_toolchain_link]: ./../../actions/workflows/riscv64_toolchain.yml
 
 # Introduction
+
 <nav for="project"> |
 <a href="#requirement">Requirement</a> |
 <a href="#codemap">Codemap</a> |
+<a href="#dependencies">Dependencies</a> |
 <a href="#build">Build</a> |
-<a href="ci/README.md">CI</a> |
+<a href="bazel/README.md">Bazel CI</a> |
+<a href="cmake/README.md">CMake CI</a> |
 <a href="#appendices">Appendices</a> |
 <a href="#license">License</a> |
 </nav>
@@ -55,14 +72,20 @@ This is an example of how to create a Modern [CMake](https://cmake.org/) C++ Pro
 
 This project should run on GNU/Linux, MacOS and Windows.
 
+note: A Bazel support is also provided as comparison
+
 ## Requirement
+
 You'll need:
 
-* "CMake >= 3.16".
+* "Bazel >= 7.0".
+* "CMake >= 3.25".
 
 ## Codemap
+
 The project layout is as follow:
 
+* [WORKSPACE](WORKSPACE) Top-level for [Bazel](https://bazel.build) based build.
 * [CMakeLists.txt](CMakeLists.txt) Top-level for [CMake](https://cmake.org/cmake/help/latest/) based build.
 * [cmake](cmake) Subsidiary CMake files.
 
@@ -77,23 +100,70 @@ The project layout is as follow:
     * [src/Foo.cpp](Foo/src/Foo.cpp)
 
 ## Build
+
 To build the C++ project, as usual:
 ```sh
 cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release
 cmake --build build --config Release
 ```
 
+To build this example you should use:
+
+```sh
+bazel build -c opt //...
+```
+
+## Running Tests
+
+To build this example you should use:
+
+```sh
+bazel test -c opt --test_output=errors --nocache_test_results //...
+```
+
+## CI Setup
+
+Please take a look at [.github/workflows](.github/workflows) to find the configuration file for each jobs.
+
+To install *bazel* on each hosted runner, follow these links:
+ref: https://docs.github.com/en/actions/using-github-hosted-runners/customizing-github-hosted-runners#installing-software-on-windows-runners
+
+* Linux (Ubuntu latest LTS) -> `apt-get install bazel`<br>
+  ref: https://docs.bazel.build/versions/main/install-ubuntu.html<br>
+  (as of 06/2021 Ubuntu 20.04 LTS is still not supported according to the doc...)
+* MacOS -> `brew install bazel`<br>
+  ref: https://formulae.brew.sh/formula/bazel#default
+* Windows -> `choco install bazel`<br>
+  ref: https://community.chocolatey.org/packages/bazel/
+
+## Appendices
+
+Few links on the subject...
+
+### Resources
+
+Project layout:
+
+* The Pitchfork Layout Revision 1 (cxx-pflR1)
+
+Bazel:
+
+* https://docs.bazel.build/versions
+
 ### Misc
+
 Image has been generated using [plantuml](http://plantuml.com/):
+
 ```bash
 plantuml -Tsvg docs/{file}.dot
 ```
-So you can find the dot source files in [ci/docs](ci/docs).
+So you can find the dot source files in [docs](docs).
 
 ## License
+
 Apache 2. See the LICENSE file for details.
 
 ## Disclaimer
+
 This is not an official Google product, it is just code that happens to be
 owned by Google.
-
