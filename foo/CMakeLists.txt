@@ -18,7 +18,15 @@ target_link_libraries(foo PUBLIC
 )
 add_library(${PROJECT_NAMESPACE}::foo ALIAS foo)
 
-add_cpp_test(${CMAKE_CURRENT_SOURCE_DIR}/foo_test.cpp)
+foo_cxx_test(
+  NAME
+    foo_test
+  SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/foo_test.cpp
+  LINK_LIBRARIES
+    foo
+    GTest::gtest_main
+)
 
 # Install
 install(TARGETS foo
