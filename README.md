@@ -41,6 +41,7 @@ CMake toolchain:<br>
 [![Build Status][mips_toolchain_status]][mips_toolchain_link]
 [![Build Status][mips64_toolchain_status]][mips64_toolchain_link]
 [![Build Status][powerpc_toolchain_status]][powerpc_toolchain_link]
+[![Build Status][powerpc64_toolchain_status]][powerpc64_toolchain_link]
 [![Build Status][riscv64_toolchain_status]][riscv64_toolchain_link]<br>
 
 [arm_toolchain_status]: ./../../actions/workflows/arm_toolchain.yml/badge.svg
@@ -53,6 +54,8 @@ CMake toolchain:<br>
 [mips64_toolchain_link]: ./../../actions/workflows/mips64_toolchain.yml
 [powerpc_toolchain_status]: ./../../actions/workflows/powerpc_toolchain.yml/badge.svg
 [powerpc_toolchain_link]: ./../../actions/workflows/powerpc_toolchain.yml
+[powerpc64_toolchain_status]: ./../../actions/workflows/powerpc64_toolchain.yml/badge.svg
+[powerpc64_toolchain_link]: ./../../actions/workflows/powerpc64_toolchain.yml
 [riscv64_toolchain_status]: ./../../actions/workflows/riscv64_toolchain.yml/badge.svg
 [riscv64_toolchain_link]: ./../../actions/workflows/riscv64_toolchain.yml
 

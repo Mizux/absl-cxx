@@ -1,4 +1,4 @@
-name: powerpc Toolchain
+name: powerpc64 Toolchain
 
 on: [push, pull_request]
 
@@ -9,9 +9,10 @@ jobs:
     strategy:
       matrix:
         targets: [
-          [ppc], # alias
-          [ppc-440fp],
-          # [ppc-e500mc], # TODO(mizux) To fix
+          [ppc64], # OCI alias
+          [ppc64le], # OCI alias
+          [ppc64-power8],
+          [ppc64le-power8],
         ]
       fail-fast: false
     env:
