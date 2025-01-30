@@ -11,16 +11,6 @@ RUN dnf -y update \
  gcc-c++ cmake \
 && dnf clean all
 
-# Install Python
-RUN dnf -y update \
-&& dnf -y install \
- python3 python3-devel python3-pip python3-wheel \
- python3-virtualenv \
- python3-numpy python3-pandas \
-&& dnf clean all
-RUN python3 -m pip install \
- absl-py mypy
-
 # Add the library src to our build env
 FROM env AS devel
 WORKDIR /home/project
@@ -37,16 +27,15 @@ RUN CTEST_OUTPUT_ON_FAILURE=1 cmake --build build --target test -v
 
 # Test install rules
 FROM env AS install_env
-COPY --from=build /home/project/build/python/dist/*.whl ./
-RUN python3 -m pip install --find-links=. \
- bp11*.whl
+COPY --from=build /usr/local /usr/local/
 
 FROM install_env AS install_devel
 WORKDIR /home/samples
 COPY cmake/samples .
 
 FROM install_devel AS install_build
-RUN python3 -m compileall .
+RUN cmake -S. -Bbuild
+RUN cmake --build build --target all -v
 
 FROM install_build AS install_test
-RUN python3 sample.py
+RUN cmake --build build --target test -v

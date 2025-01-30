@@ -11,14 +11,6 @@ RUN dnf -y update \
 && rm -rf /var/cache/dnf
 CMD [ "/usr/bin/bash" ]
 
-# Install Python
-RUN dnf -y update \
-&& dnf -y install python3-devel python3-pip \
-&& dnf clean all \
-&& rm -rf /var/cache/dnf
-RUN python3 -m pip install \
- absl-py mypy
-
 # Add the library src to our build env
 FROM env AS devel
 WORKDIR /home/project
@@ -35,16 +27,15 @@ RUN CTEST_OUTPUT_ON_FAILURE=1 cmake --build build --target test -v
 
 # Test install rules
 FROM env AS install_env
-COPY --from=build /home/project/build/python/dist/*.whl ./
-RUN python3 -m pip install --find-links=. \
- bp11*.whl
+COPY --from=build /usr/local /usr/local/
 
 FROM install_env AS install_devel
 WORKDIR /home/samples
 COPY cmake/samples .
 
 FROM install_devel AS install_build
-RUN python3 -m compileall .
+RUN cmake -S. -Bbuild
+RUN cmake --build build --target all -v
 
 FROM install_build AS install_test
-RUN python3 sample.py
+RUN cmake --build build --target test -v
