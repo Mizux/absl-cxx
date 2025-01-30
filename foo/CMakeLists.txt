@@ -12,9 +12,19 @@ endif()
 set_target_properties(foo PROPERTIES
   VERSION ${PROJECT_VERSION}
   PUBLIC_HEADER foo.hpp)
+# note: macOS is APPLE and also UNIX !
+if(APPLE)
+  set_target_properties(foo PROPERTIES
+    INSTALL_RPATH "@loader_path")
+elseif(UNIX AND NOT APPLE)
+  set_target_properties(foo PROPERTIES
+    INSTALL_RPATH "$ORIGIN")
+endif()
 target_link_libraries(foo PUBLIC
   absl::flags
   absl::status
+  absl::strings
+  absl::time
 )
 add_library(${PROJECT_NAMESPACE}::foo ALIAS foo)
 
