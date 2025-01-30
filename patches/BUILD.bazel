@@ -1,4 +1,3 @@
 exports_files([
   "abseil-cpp-20240116.2.patch",
-    "zlib.patch",
 ])
