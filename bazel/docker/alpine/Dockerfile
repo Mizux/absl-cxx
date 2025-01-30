@@ -31,8 +31,4 @@ RUN bazel test \
  -c opt \
  --test_output=errors \
  --enable_bzlmod \
- ... \
- -- \
- -//bp11/foo/python:foo_test \
- -//bp11/foo/python:status_test \
- -//pure_lib:mylib_test
+ ...
