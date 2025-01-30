@@ -6,6 +6,8 @@ Github-CI:
 | MacOS (`arm64`) | [![Build Status][arm64_macos_bazel_status]][arm64_macos_bazel_link] | [![Build Status][arm64_macos_cmake_status]][arm64_macos_cmake_link] |
 | Windows (`amd64`) | [![Build Status][amd64_windows_bazel_status]][amd64_windows_bazel_link] | [![Build Status][amd64_windows_cmake_status]][amd64_windows_cmake_link] |
 | Docker (`amd64`)  | [![Build Status][amd64_docker_bazel_status]][amd64_docker_bazel_link] | [![Build Status][amd64_docker_cmake_status]][amd64_docker_cmake_link] |
+| Docker (`arm64`)  | NA | [![Build Status][arm64_docker_cmake_status]][arm64_docker_cmake_link] |
+| Docker (`riscv64`)  | NA | [![Build Status][riscv64_docker_cmake_status]][riscv64_docker_cmake_link] |
 
 [amd64_linux_bazel_status]: ./../../actions/workflows/amd64_linux_bazel.yml/badge.svg
 [amd64_linux_bazel_link]: ./../../actions/workflows/amd64_linux_bazel.yml
@@ -28,18 +30,12 @@ Github-CI:
 [amd64_windows_cmake_link]: ./../../actions/workflows/amd64_windows_cmake.yml
 [amd64_docker_cmake_status]: ./../../actions/workflows/amd64_docker_cmake.yml/badge.svg
 [amd64_docker_cmake_link]: ./../../actions/workflows/amd64_docker_cmake.yml
+[arm64_docker_cmake_status]: ./../../actions/workflows/arm64_docker_cmake.yml/badge.svg
+[arm64_docker_cmake_link]: ./../../actions/workflows/arm64_docker_cmake.yml
+[riscv64_docker_cmake_status]: ./../../actions/workflows/riscv64_docker_cmake.yml/badge.svg
+[riscv64_docker_cmake_link]: ./../../actions/workflows/riscv64_docker_cmake.yml
 
-[![Build Status][amd64_docker_status]][amd64_docker_link]
-[![Build Status][arm64_docker_status]][arm64_docker_link]
-[![Build Status][riscv64_docker_status]][riscv64_docker_link]<br>
-
-[amd64_docker_status]: ./../../actions/workflows/amd64_docker.yml/badge.svg
-[amd64_docker_link]: ./../../actions/workflows/amd64_docker.yml
-[arm64_docker_status]: ./../../actions/workflows/arm64_docker.yml/badge.svg
-[arm64_docker_link]: ./../../actions/workflows/arm64_docker.yml
-[riscv64_docker_status]: ./../../actions/workflows/riscv64_docker.yml/badge.svg
-[riscv64_docker_link]: ./../../actions/workflows/riscv64_docker.yml
-
+CMake toolchain:<br>
 [![Build Status][arm_toolchain_status]][arm_toolchain_link]
 [![Build Status][aarch64_toolchain_status]][aarch64_toolchain_link]
 [![Build Status][mips_toolchain_status]][mips_toolchain_link]

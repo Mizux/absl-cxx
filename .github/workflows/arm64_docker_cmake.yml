@@ -1,5 +1,5 @@
 # ref: https://github.com/docker-library/official-images
-name: amd64 Docker CMake
+name: arm64 Docker CMake
 
 on: [push, pull_request, workflow_dispatch]
 
@@ -7,13 +7,15 @@ jobs:
   cmake:
     strategy:
       matrix:
-        platform: [amd64]
-        distro: [almalinux, alpine, archlinux, debian, fedora, opensuse, rockylinux, ubuntu]
+        platform: [arm64]
+        distro: [almalinux, alpine, debian, fedora, opensuse, rockylinux, ubuntu]
       fail-fast: false
     name: ${{ matrix.platform }}•${{ matrix.distro }}•CMake
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
       - name: Check docker
         run: |
           docker info
