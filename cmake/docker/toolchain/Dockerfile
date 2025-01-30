@@ -11,18 +11,18 @@ RUN apt-get update -qq \
 ENTRYPOINT ["/usr/bin/bash", "-c"]
 CMD ["/usr/bin/bash"]
 
-# Install CMake 3.25.2
-RUN wget "https://cmake.org/files/v3.25/cmake-3.25.2-linux-x86_64.sh" \
-&& chmod a+x cmake-3.25.2-linux-x86_64.sh \
-&& ./cmake-3.25.2-linux-x86_64.sh --prefix=/usr/local/ --skip-license \
-&& rm cmake-3.25.2-linux-x86_64.sh
+# Install CMake 3.31.5
+RUN wget "https://cmake.org/files/v3.31/cmake-3.31.5-linux-x86_64.sh" \
+&& chmod a+x cmake-3.31.5-linux-x86_64.sh \
+&& ./cmake-3.31.5-linux-x86_64.sh --prefix=/usr/local/ --skip-license \
+&& rm cmake-3.31.5-linux-x86_64.sh
 
 FROM env AS devel
 WORKDIR /home/project
 COPY . .
 
 ARG TARGET
-ENV TARGET ${TARGET:-unknown}
+ENV TARGET=${TARGET:-unknown}
 
 FROM devel AS build
 RUN cmake --version
