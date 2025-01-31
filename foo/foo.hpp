@@ -22,16 +22,28 @@
 #define FOO_DLL
 #endif
 
+// The ABSL_DECLARE_DLL_FLAG(dll, type, name) macro expands to:
+//   dll extern absl::Flag<type> FLAGS_name;
+#define ABSL_DECLARE_DLL_FLAG(dll, type, name) ABSL_DECLARE_DLL_FLAG_INTERNAL(dll, type, name)
+
+// Internal implementation of ABSL_DECLARE_FLAG to allow macro expansion of its
+// arguments. Clients must use ABSL_DECLARE_FLAG instead.
+#define ABSL_DECLARE_DLL_FLAG_INTERNAL(dll, type, name)      \
+  dll extern absl::Flag<type> FLAGS_##name;                  \
+  namespace absl /* block flags in namespaces */ {}          \
+  /* second redeclaration is to allow applying attributes */ \
+  dll extern absl::Flag<type> FLAGS_##name
+
 #if 1
-FOO_DLL extern absl::Flag<bool> FLAGS_foo_bool;
-FOO_DLL extern absl::Flag<int> FLAGS_foo_int;
-FOO_DLL extern absl::Flag<int64_t> FLAGS_foo_long_int;
-FOO_DLL extern absl::Flag<std::string> FLAGS_foo_string;
+ABSL_DECLARE_DLL_FLAG(FOO_DLL, bool, foo_bool);
+ABSL_DECLARE_DLL_FLAG(FOO_DLL, int, foo_int);
+ABSL_DECLARE_DLL_FLAG(FOO_DLL, int64_t, foo_long_int);
+ABSL_DECLARE_DLL_FLAG(FOO_DLL, std::string, foo_string);
 #else
-ABSL_DECLARE_FLAG(bool, foo_bool);
-ABSL_DECLARE_FLAG(int, foo_int);
-ABSL_DECLARE_FLAG(int64_t, foo_long_int);
-ABSL_DECLARE_FLAG(std::string, foo_string);
+FOO_DLL ABSL_DECLARE_FLAG(bool, foo_bool);
+FOO_DLL ABSL_DECLARE_FLAG(int, foo_int);
+FOO_DLL ABSL_DECLARE_FLAG(int64_t, foo_long_int);
+FOO_DLL ABSL_DECLARE_FLAG(std::string, foo_string);
 #endif
 //! @namespace foo The `foo` namespace
 namespace foo {
