@@ -35,15 +35,23 @@
   dll extern absl::Flag<type> FLAGS_##name
 
 #if 1
+#pragma message("warning: Using ABSL_DECLARE_DLL_FLAG!")
 ABSL_DECLARE_DLL_FLAG(FOO_DLL, bool, foo_bool);
 ABSL_DECLARE_DLL_FLAG(FOO_DLL, int, foo_int);
 ABSL_DECLARE_DLL_FLAG(FOO_DLL, int64_t, foo_long_int);
 ABSL_DECLARE_DLL_FLAG(FOO_DLL, std::string, foo_string);
-#else
+#elif 0
+#pragma message("warning: Suppose ABSL_DECLARE_FLAG support it!")
 FOO_DLL ABSL_DECLARE_FLAG(bool, foo_bool);
 FOO_DLL ABSL_DECLARE_FLAG(int, foo_int);
 FOO_DLL ABSL_DECLARE_FLAG(int64_t, foo_long_int);
 FOO_DLL ABSL_DECLARE_FLAG(std::string, foo_string);
+#else
+#pragma message("warning: NO FOO_DLL support!")
+ABSL_DECLARE_FLAG(bool, foo_bool);
+ABSL_DECLARE_FLAG(int, foo_int);
+ABSL_DECLARE_FLAG(int64_t, foo_long_int);
+ABSL_DECLARE_FLAG(std::string, foo_string);
 #endif
 //! @namespace foo The `foo` namespace
 namespace foo {
