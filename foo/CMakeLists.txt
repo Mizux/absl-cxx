@@ -35,6 +35,7 @@ foo_cxx_test(
     ${CMAKE_CURRENT_SOURCE_DIR}/foo_test.cpp
   LINK_LIBRARIES
     foo
+    GTest::gtest
     GTest::gtest_main
 )
 

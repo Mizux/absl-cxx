@@ -6,6 +6,12 @@
 #include <string>
 
 namespace foo {
+TEST(FooTest, GtestFlags) {
+  GTEST_FLAG_SET(random_seed, 42);
+  auto gtest_seed = GTEST_FLAG_GET(random_seed);
+  EXPECT_EQ(42, gtest_seed);
+}
+
 TEST(FooTest, AbslFunction) {
   auto good = abslFunction("good");
   EXPECT_TRUE(good.ok());
